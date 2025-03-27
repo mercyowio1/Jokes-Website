@@ -30,6 +30,41 @@ document.addEventListener("DOMContentLoaded" ,function(){
                 }
             })
             .catch(error => console.error("Error fetching random joke:", error));
+    });addJokeBtn.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      const category = newCategory.value.trim();
+      const setup = newSetup.value.trim();
+      const punchline = newPunchline.value.trim();
+
+      if (!category || !setup) {
+        alert("Please enter a category and setup for the joke.");
+        return;
+      }
+
+      const newJoke = {
+        id: Math.random().toString(36).slice(2, 11), // Unique ID
+        category: category,
+        type: "twopart",
+        setup: setup,
+        punchline: punchline,
+      };
+
+      fetch("http://localhost:3000/jokes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newJoke),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Joke added:", data);
+          alert("Joke added successfully!");
+          newCategory.value = "";
+          newSetup.value = "";
+          newPunchline.value = "";
+        })
+        .catch((error) => console.error("Error adding joke:", error));
     });
+
     })
 
