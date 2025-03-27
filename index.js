@@ -65,6 +65,37 @@ document.addEventListener("DOMContentLoaded" ,function(){
         })
         .catch((error) => console.error("Error adding joke:", error));
     });
+    searchButton.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      fetch("http://localhost:3000/jokes")
+        .then((response) => response.json())
+        .then((data) => {
+          const genre = input.value.trim().toLowerCase();
+
+          const filteredJokes = data.filter(
+            (joke) => joke.category.toLowerCase() === genre
+          );
+
+          display.innerHTML =
+            filteredJokes.length > 0
+              ? filteredJokes
+                  .map(
+                    (joke) =>
+                      `<div class="joke-card">
+                            <h3>${joke.category} Joke</h3>
+                            ${
+                              joke.type === "single"
+                                ? `<p>${joke.joke}</p>`
+                                : `<p>${joke.setup} <br> <strong>${joke.punchline}</strong></p>`
+                            }
+                        </div>`
+                  )
+                  .join("")
+              : "<p>No jokes found.</p>";
+        })
+        .catch((error) => console.error("Error fetching jokes:", error));
+    });
 
     })
 
