@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/style.css">
+    <title>Joke-App</title>
+    <!--Linking of css-->
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="form">
-            <label for="Joke-genre">search your Joke-genre </label>
-            <input type="text" id="Joke-genre">
-            <button id="button">Search</button>
+<div class="container">
+    <div class="form">
+        <form action="">
+            <label for="joke-genre">Search your joke</label>
+            <input type="text" id="joke-genre" placeholder="search your genre of joke">
+            <button id="search">Search</button>
+        </form>
+    
         </div>
         <div id="display">
-            
+    
         </div>
-
-    </div><div class="add-joke">
+        <div class="add-joke">
             <h3>Add a Joke</h3>
             <input type="text" id="new-category" placeholder="Enter joke category">
             <input type="text" id="new-setup" placeholder="Enter joke setup">
@@ -25,6 +28,8 @@
             <button id="add-joke-btn">Add Joke</button>
         </div>
         <button id="random-joke-btn">Get Random Joke</button>
+        
+</div>
     <script src="/index.js"></script>
 </body>
 </html>
