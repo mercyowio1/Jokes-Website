@@ -10,13 +10,21 @@
     <div class="container">
         <div class="form">
             <label for="Joke-genre">search your Joke-genre </label>
-            <input type="text" class="Joke-genre">
-            <button class="button">Search</button>
+            <input type="text" id="Joke-genre">
+            <button id="button">Search</button>
         </div>
-        <div class="display">
+        <div id="display">
             
         </div>
-    </div>
+
+    </div><div class="add-joke">
+            <h3>Add a Joke</h3>
+            <input type="text" id="new-category" placeholder="Enter joke category">
+            <input type="text" id="new-setup" placeholder="Enter joke setup">
+            <input type="text" id="new-punchline" placeholder="Enter punchline (optional)">
+            <button id="add-joke-btn">Add Joke</button>
+        </div>
+        <button id="random-joke-btn">Get Random Joke</button>
     <script src="/index.js"></script>
 </body>
 </html>

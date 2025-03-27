@@ -41,7 +41,7 @@ button:hover{
     background-color: blueviolet;
     
 }
-.display{
+#display{
      margin-top:20px ;
      padding: 20px;
      width: 80%;
